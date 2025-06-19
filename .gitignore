@@ -1,22 +1,120 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
-.vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
-*.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-file
-*.flf
-#Test results file
-TestResults.xml
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>البرنس - خدمات السوشيال ميديا</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      direction: rtl;
+    }header {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/2/21/Social_media_icons.png') no-repeat center;
+  background-size: cover;
+  height: 250px;
+  text-align: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  background-color: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+main {
+  padding: 20px;
+}
+
+.product {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #1ebd5a;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+  </style>
+</head>
+<body><header>
+  <h1>البرنس لخدمات السوشيال ميديا</h1>
+</header><main>
+  <div class="product">
+    <label>لايكات تيك توك (1K = 10ج)</label>
+    <input type="number" id="likes" min="0" placeholder="مثلاً 3 للـ3K">
+  </div>  <div class="product">
+    <label>حفظ فيديو (1K = 14ج)</label>
+    <input type="number" id="saves" min="0">
+  </div>  <div class="product">
+    <label>مشاركات (1K = 15ج)</label>
+    <input type="number" id="shares" min="0">
+  </div>  <div class="product">
+    <label>متابعين (1K = 25ج)</label>
+    <input type="number" id="followers" min="0">
+  </div><button onclick="sendOrder()">اطلب الآن عبر واتساب</button>
+
+</main><footer>
+  للتواصل أو الشكاوى: ananooboot@gmail.com
+</footer><script>
+  function sendOrder() {
+    const likes = parseInt(document.getElementById("likes").value) || 0;
+    const saves = parseInt(document.getElementById("saves").value) || 0;
+    const shares = parseInt(document.getElementById("shares").value) || 0;
+    const followers = parseInt(document.getElementById("followers").value) || 0;
+
+    let total = (likes * 10) + (saves * 14) + (shares * 15) + (followers * 25);
+
+    let message = "مرحبًا، أريد طلب الخدمات التالية:\n";
+    if (likes) message += `- ${likes}K لايكات\n`;
+    if (saves) message += `- ${saves}K حفظ فيديو\n`;
+    if (shares) message += `- ${shares}K مشاركات\n`;
+    if (followers) message += `- ${followers}K متابعين\n`;
+    message += `\nالإجمالي: ${total} جنيه`;
+
+    let phone = "201115348948";
+    let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+</script></body>
+</html>
